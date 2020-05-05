@@ -1,12 +1,10 @@
 +++
-date = 2020-05-04T14:00:00Z
-lastmod = 2020-05-04T14:00:00Z
+date = 2020-05-05T18:00:00Z
+lastmod = 2020-05-05T18:00:00Z
 author ="l1ge"
 title = "OverTheWire: Leviathan 2 Write-Up"
 subtitle = "Write-up for Leviathan level 2 the FUN way"
 feature = "image/leviathan_thumb.jpg"
-width= "700"
-height= "302"
 caption = "Screenshot from Leviathan, 2014. Directed by Andrey Zvyagintsev"
 tags = ["write-up", "overthewire", "reverse engineering"]
 categories = ["write-ups"]

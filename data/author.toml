@@ -15,3 +15,6 @@ image = "image/author/default.webp"
 [l1ge]
 name = "l1ge"
 image = "image/author/default.webp"
+twitter = "the_l1ge"
+email = "l1ge@protonmail.com"
+uri = "https://l1ge.github.io"
