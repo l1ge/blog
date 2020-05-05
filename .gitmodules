@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/l1ge/l1ge.github.io.git
+	branch = master
