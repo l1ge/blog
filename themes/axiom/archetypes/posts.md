@@ -5,6 +5,5 @@ author = "default"
 title = "{{ replace .TranslationBaseName "-" " " | title }}"
 subtitle = "Suggested 25 words / 125 chars. Used in metadata, and content summaries."
 feature = "{{ .Site.Params.image.default }}"
+caption = ""
 +++
-
-And go...

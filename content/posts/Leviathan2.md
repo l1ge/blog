@@ -3,12 +3,16 @@ date = 2020-05-04T14:00:00Z
 lastmod = 2020-05-04T14:00:00Z
 author ="l1ge"
 title = "OverTheWire: Leviathan 2 Write-Up"
-subtitle = "Write-up for Leviathan level 2, the FUN way "
-feature = ""
+subtitle = "Write-up for Leviathan level 2 the FUN way"
+feature = "image/leviathan_thumb.jpg"
+caption = "Screenshot from Leviathan, 2014. Directed by Andrey Zvyagintsev"
+tags = ["write-up", "overthewire", "reverse engineering"]
+categories = ["write-ups"]
 
 +++
 
-There are plenty of write-ups out there for Leviathan's Level 2.  But none of them solved it the way I did: **the fun way!**
+There are plenty of write-ups out there for Leviathan's Level 2.  But none of them solved it the way I did: **the fun way!** - When you miss the very obvious solution but your qwerky way finally work
+
 Let's first access the level
 
 > ssh -p 2223 leviathan2@leviathan.labs.overthewire.org
@@ -24,7 +28,7 @@ total 8
 ```
 
 It has the SUID bit (s), which means we can run it with the permissions of its owner leviathan3
-Great! so let's try to print leviathan3 password 
+Great! so let's try to print leviathan3 password
 
 ```bash
 $ ./printfile /etc/leviathan_pass/leviathan3
@@ -84,7 +88,7 @@ exit_group(1)                           = ?
 +++ exited with 1 +++
 ```
 
-To be honest, I don't understand what most of this means, but one line is pretty straightforward : 
+To be honest, I don't understand what most of this means, but one line is pretty straightforward :
 
 ```bash
 access("/etc/leviathan_pass/leviathan3", R_OK) = -1 EACCES (Permission denied)
@@ -93,19 +97,19 @@ access("/etc/leviathan_pass/leviathan3", R_OK) = -1 EACCES (Permission denied)
 There is an *access()* function that checks if I can access the file. Let's investigate how that function works.
 From this [link](https://linux.die.net/man/2/access) I get a few interesting informations:
 
-> The check is done using the calling process's real UID and GID, rather than the effective IDs as is done when actually attempting an operation (e.g., open(2)) on the file. This allows set-user-ID programs to easily determine the invoking user's authority. 
+> The check is done using the calling process's real UID and GID, rather than the effective IDs as is done when actually attempting an operation (e.g., open(2)) on the file. This allows set-user-ID programs to easily determine the invoking user's authority.
 
 OK now I understand why, despite the SUID bit on the `printfile`, I can't access the password file.
 I keep reading and stumble upon a serious lead :
 
 > **Warning**: Using access() to check if a user is authorized to, for example, open a file before actually doing so using open(2) creates a security hole, because the user might exploit the short time interval between checking and opening the file to manipulate it. For this reason, the use of this system call should be avoided.
 
-I like that! 
+I like that!
 I decide to Google more and I discovered that this kind of vulnerabilities was called **TOCTOU** (Time-of-check to time-of-use) and was mostly abused using symlinks.
 
-The idea is to modify the file between the moment it gets checked for permissions and the moment it gets opened. This is done by creating a symlink on the file, targeting the real file we wanna access. But this happens so fast, how can I do that ? 
+The idea is to modify the file between the moment it gets checked for permissions and the moment it gets opened. This is done by creating a symlink on the file, targeting the real file we wanna access. But this happens so fast, how can I do that ?
 
-That's when it becomes fun. I could have made a script but in the intro of the Leviathan's series, its said you don't need to write scripts to solve any of the level. 
+That's when it becomes fun. I could have made a script but in the intro of the Leviathan's series, its said you don't need to write scripts to solve any of the level.
 
 Instead I did it... manually.
 
@@ -141,10 +145,9 @@ BUT in less than 1mn the magic happened, that's fast enough to bypass my own pes
 
 Our password is  **Ahdiemoo1j**
 
-There is of course a most reliable way to solve this level and you can check the other write-ups about it. 
+There is of course a most reliable way to solve this level and you can check the other write-ups about it.
 
 Hope you enjoyed!
 
 Cheers,
 l1ge.
-

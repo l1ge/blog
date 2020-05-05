@@ -15,7 +15,7 @@
 
 /* layout inner, gutter = mx-4 */
 .ax-l-i {
-  @apply flex-grow min-w-0 max-w-680 mx-4 mt-8;
+  @apply flex justify-center min-w-0 max-w-680 mx-4 mt-8;
 }
 
 .ax-feature > .ax-l-i {

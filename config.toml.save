@@ -30,7 +30,7 @@ email = "l1ge@protonmail.com"
 [params.social]
 github = "https://github.com/l1ge"
 twitter = "https://twitter.com/the_l1ge"
-footer = ["twitter", "github"]
+footer = ["twitter", "1024github"]
 
 [params.services]
 analyticsId = ""
@@ -45,12 +45,11 @@ facebookPixel = ""
 
 [params.logo]
 inline = true
-path = "image/brand/logo.svg"
 
 
 [params.image]
-width = "700"
-height = "302"
+width = "2048"
+height = "1024"
 faviconIco = "favicon.ico"
 faviconAlt = "image/brand/favicon.png"
 icon1To1 = "image/brand/icon-1-1.png"
