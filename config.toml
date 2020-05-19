@@ -7,7 +7,7 @@ defaultContentLanguage = "en-us"
 theme = "axiom"
 
 paginate = 2
-canonifyURLs = false
+canonifyURLs = true
 summaryLength = 40
 rssLimit = 100
 enableEmoji = true
@@ -83,6 +83,10 @@ mediaType = "application/atom+xml"
 suffixes = ["atom"]
 
 [markup]
+[markup.tableOfContents]
+endLevel = 2
+ordered = false
+startLevel = 2
 [markup.goldmark]
 [markup.goldmark.extensions]
 definitionList = false
@@ -99,8 +103,10 @@ attribute = false
 autoHeadingID = false
 [markup.highlight]
 codeFences = false
-noClasses = false
-tabWidth = 2
+noClasses = true
+tabWidth = 4
+
+
 
 [menu]
 [[menu.main]]

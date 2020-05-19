@@ -19,7 +19,7 @@ Let's first access the level
 >
 > password: ougahZi8Ta
 
-## Recon
+# Recon
 
 In the home folder there is an executable named `printfile`. Let's check its permissions
 
@@ -97,7 +97,7 @@ access("/etc/leviathan_pass/leviathan3", R_OK) = -1 EACCES (Permission denied)
 ```
 
 There is an *access()* function that checks if I can access the file. Let's investigate how that function works.
-## Researches
+# Researches
 From this [link](https://linux.die.net/man/2/access) I get a few interesting informations:
 
 > The check is done using the calling process's real UID and GID, rather than the effective IDs as is done when actually attempting an operation (e.g., open(2)) on the file. This allows set-user-ID programs to easily determine the invoking user's authority.
@@ -115,7 +115,7 @@ The idea is to modify the file between the moment it gets checked for permission
 That's when it becomes fun. I could have made a script but in the intro of the Leviathan's series, its said you don't need to write scripts to solve any of the level.
 
 Instead I did it... manually.
-## Exploit
+# Exploit
 I used `tmux` to be able to launch two commands simultaneously. You can also use `screen`
 
 ```bash

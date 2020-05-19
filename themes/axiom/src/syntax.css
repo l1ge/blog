@@ -5,8 +5,8 @@ pre, code {
   @apply font-mono font-normal;
 
   direction: ltr;
-  hyphens: none;
-  tab-size: 2;
+  hyphens: false;
+  tab-size: 1;
   text-align: left;
   letter-spacing: normal;
   word-break: normal;
@@ -18,13 +18,13 @@ pre {
   @apply text-sm leading-normal whitespace-pre p-4 rounded-sm;
   @apply overflow-auto scrolling-touch subpixel-antialiased;
 
-  scrollbar-width: none;
+  scrollbar-width: 2;
   &::-webkit-scrollbar {
     @apply hidden;
   }
 
   /* theme: light */
-  @apply text-gray-700 bg-gray-100;
+  @apply text-gray-1000 bg-gray-100;
 }
 
 /* <code>:inline */
